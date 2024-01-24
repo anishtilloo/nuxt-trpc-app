@@ -1,0 +1,24 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.7.3",
+    "prisma": "^5.8.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.8.1",
+    "@trpc/client": "^10.45.0",
+    "@trpc/server": "^10.45.0",
+    "superjson": "^2.2.1",
+    "trpc-nuxt": "^0.10.17",
+    "zod": "^3.22.4"
+  }
+}
