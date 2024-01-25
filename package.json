@@ -17,8 +17,10 @@
     "@prisma/client": "^5.8.1",
     "@trpc/client": "^10.45.0",
     "@trpc/server": "^10.45.0",
+    "@vee-validate/zod": "^4.12.4",
     "superjson": "^2.2.1",
     "trpc-nuxt": "^0.10.17",
+    "vee-validate": "^4.12.4",
     "zod": "^3.22.4"
   }
 }
