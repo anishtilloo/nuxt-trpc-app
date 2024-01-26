@@ -4,14 +4,14 @@ const { $client } = useNuxtApp()
 
 const { user } = $client;
 
-const createUser = async () => { 
+const createUser = async () => {
   return (
-    await user.addUser.mutate({ 
-      userName: "Shripad Dhopate",
-      userMobileNumber: "1234567890",
-      userEmail: "shreedhopate@gmail.com",
-      userAddress: "Omkar Nagar, Nagpur",
-      userHobbies: ["Coding", "Music", "Playing flute"], 
+    await user.addUser.mutate({
+      userName: "Anish Tilloo",
+      userMobileNumber: "0987654321",
+      userEmail: "tillooanish@gmail.com",
+      userAddress: "Pande Layout, Khamla, Nagpur",
+      userHobbies: ["Coding", "Sketching", "Listining to Music", 'Watcing Movie and Tv Shows'],
     }));
 }
 

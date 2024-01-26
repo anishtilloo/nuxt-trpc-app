@@ -1,17 +1,12 @@
 import { z } from 'zod';
 import { publicProcedure, router } from '~/server/trpc/trpc';
+import { UserSchema } from '~/schemas/user.schema';
+import { IdSchema } from '~/schemas/get.schema';
+
 
 export const userRouter = router({
     addUser: publicProcedure
-    .input(
-        z.object({
-            userName: z.string(),
-            userMobileNumber: z.string(),
-            userEmail: z.string().email(),
-            userAddress: z.string(),
-            userHobbies: z.string().array(),
-        }),
-    )
+    .input(UserSchema)
     .mutation(async ({ input, ctx }) => {
     // This is what you're returning to your client
           try {
@@ -41,11 +36,7 @@ export const userRouter = router({
     }),
 
     getUser: publicProcedure
-        .input(
-            z.object({
-                id: z.string()
-            }),
-        )
+        .input(IdSchema)
         .query( async ({ input, ctx }) => {
             try {
                 const getUserFromDB = await ctx.prisma.user.findUnique({
