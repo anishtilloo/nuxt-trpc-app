@@ -1,8 +1,28 @@
 <script lang="ts" setup>
 
-const { $client } = useNuxtApp()
+import { useForm } from 'vee-validate';
+import * as z from 'zod';
+
+
+const validationSchema = z.object({
+    email: z.string().email(),
+    name: z.string(),
+    // password: yup.string().min(8).max(8).required(),
+  })
+
+const { $client } = useNuxtApp();
 
 const { user } = $client;
+
+const { values, defineComponentBinds, errors, meta, handleSubmit  } = useForm({
+    validationSchema: validationSchema,
+});
+
+const email = defineComponentBinds('email');
+const password = defineComponentBinds('password');
+const name = defineComponentBinds('name');
+
+const variable = ref('');
 
 const createUser = async () => {
   return (
@@ -23,6 +43,8 @@ const getUser = async () => {
   )
 }
 
+
+
 </script>
 
 
@@ -30,4 +52,13 @@ const getUser = async () => {
   <h1>This is home page</h1>
   <button @click="createUser">Create User</button>
   <button @click="getUser">Get User</button>
+  <h1>{{ variable }}</h1>
+<!-- <input type="text"> -->
+  <InputText 
+    v-model="variable"
+    type="email"
+    placeholder="Your email"
+    label="Username"
+    name="email"
+    />
 </template>
