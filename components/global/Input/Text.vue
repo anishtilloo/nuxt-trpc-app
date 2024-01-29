@@ -22,7 +22,7 @@
   const props = defineProps<{
     label: string;
     name: string;
-    madatory: boolean,
+    mandatory: boolean,
     errors?: Record<string, string | undefined>;
     inputValue?: string | number | undefined;
   }>();
